@@ -1,0 +1,46 @@
+# Default configuration for the application
+server:
+  port: 8080
+---
+# Spring
+spring:
+  docker:
+    compose:
+      enabled: true
+      file: docker-compose.yml
+  application:
+    name: "spring-ai-demo"
+---
+# PostgresSQL
+spring:
+  datasource:
+    url: ${POSTGRES_DB_URI:jdbc:postgresql://localhost:5432/demo}
+    username: ${POSTGRES_DB_USERNAME:postgres}
+    password: ${POSTGRES_DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: db/liquibase-changelog.yaml
+---
+# Spring AI
+spring:
+  ai:
+    retry:
+      max-attempts: 2
+    openai:
+      chat:
+        options:
+          model: gpt-4o-mini
+          max-tokens: 1500
+          n: 1
+      embedding:
+        options:
+          model: text-embedding-3-small
+          dimensions: 768
+      api-key: ${OPENAI_API_KEY}
+    vector-store:
+      pgvector:
+        dimensions: 768
+        index-type: hnsw
+---
+tavily:
+  api-key: ${TAVILY_SEARCH_API_KEY}

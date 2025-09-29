@@ -1,0 +1,30 @@
+### Vector Store - Populate #1
+POST http://localhost:8001/ingest
+Content-Type: application/json
+
+{
+  "origin": "Ethiopia",
+  "name": "Banko Michicha",
+  "tasteNotes": [
+    "peach",
+    "lemongrass",
+    "black tea"
+  ],
+  "roastDate": "2025-08-25",
+  "roaster": "Casino Mocca, Budapest"
+}
+
+### Vector Store - Populate #2
+POST http://localhost:8001/ingest
+Content-Type: application/json
+
+{
+  "origin": "Brazil",
+  "name": "Our Plot",
+  "tasteNotes": [
+    "blueberry jam",
+    "pecan"
+  ],
+  "roastDate": "2025-08-20",
+  "roaster": "The Barn, Berlin"
+}

@@ -1,0 +1,4 @@
+databaseChangeLog:
+  - include:
+      file: 'changelog/init_vector_store.sql'
+      relativeToChangelogFile: true

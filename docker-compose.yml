@@ -1,0 +1,14 @@
+version: '3.8'
+name: spring-ai-demo
+services:
+  postgresql:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: demo
+      POSTGRES_SCHEMA: demo
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/postgresql_data:/var/lib/postgresql/data

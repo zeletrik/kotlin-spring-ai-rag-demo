@@ -1,0 +1,8 @@
+# Custom detekt rules. For more information, see: https://detekt.dev/docs/introduction/configurations
+output-reports:
+  active: true
+  exclude:
+   # - 'HtmlOutputReport'
+   # - 'XmlOutputReport'
+   # - 'sarif'
+    - 'MdOutputReport'

@@ -1,0 +1,54 @@
+[versions]
+detekt = { strictly = "[1.23.8, 2.0.0[", prefer = "1.23.8" }
+jackson = { strictly = "[2.19.0, 2.20.0[", prefer = "2.19.2" }
+kotlin = { strictly = "[2.2.0, 2.3.0[", prefer = "2.2.10" }
+kotlin-coroutines = { strictly = "[1.10.0, 2.0.0[", prefer = "1.10.2" }
+kotlinx-html = { strictly = "[0.12.0, 0.13.0[", prefer = "0.12.0" }
+spring = { strictly = "[3.5.0, 3.6.0[", prefer = "3.5.5" }
+spring-ai = { strictly = "[1.0.0, 2.0.0[", prefer = "1.0.1" }
+spring-dependency-management = { strictly = "[1.1.0, 1.2.0[", prefer = "1.1.7" }
+
+[libraries]
+detekt-ktlint-formatter = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }
+jackson-module-kotlin = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin", version.ref = "jackson" }
+kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
+kotlin-stdlib-jdk8 = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
+kotlinx-coroutines-reactor = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-reactor", version.ref = "kotlin-coroutines" }
+kotlinx-coroutines-slf4j = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-slf4j", version.ref = "kotlin-coroutines" }
+kotlinx-html-jvm = { group = "org.jetbrains.kotlinx", name = "kotlinx-html-jvm", version.ref = "kotlinx-html" }
+liquibase = { group = "org.liquibase", name = "liquibase-core" }
+postgre-driver = { group = "org.postgresql", name = "postgresql" }
+reactor-kotlin-extensions = { group = "io.projectreactor.kotlin", name = "reactor-kotlin-extensions" }
+spring-ai-bom = { group = "org.springframework.ai", name = "spring-ai-bom", version.ref = "spring-ai" }
+spring-ai-rag = { group = "org.springframework.ai", name = "spring-ai-rag" }
+spring-ai-spring-boot-docker-compose = { group = "org.springframework.ai", name = "spring-ai-spring-boot-docker-compose" }
+spring-ai-starter-model-openai = { group = "org.springframework.ai", name = "spring-ai-starter-model-openai" }
+spring-ai-starter-vector-store-pgvector = { group = "org.springframework.ai", name = "spring-ai-starter-vector-store-pgvector" }
+spring-boot-starter-actuator = { group = "org.springframework.boot", name = "spring-boot-starter-actuator" }
+spring-boot-starter-data-jpa = { group = "org.springframework.boot", name = "spring-boot-starter-data-jpa" }
+spring-boot-starter-webflux = { group = "org.springframework.boot", name = "spring-boot-starter-webflux" }
+
+[bundles]
+kotlin-coroutines-reactor = [
+    "kotlin-reflect",
+    "kotlinx-coroutines-core",
+    "kotlinx-coroutines-reactor",
+    "kotlinx-coroutines-slf4j",
+    "reactor-kotlin-extensions"
+]
+spring-data-postgre-jpa = [
+    "postgre-driver",
+    "spring-boot-starter-data-jpa"
+]
+spring-webflux-core = [
+    "spring-boot-starter-actuator",
+    "spring-boot-starter-webflux",
+]
+
+[plugins]
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
+spring-boot = { id = "org.springframework.boot", version.ref = "spring" }
+spring-boot-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }
